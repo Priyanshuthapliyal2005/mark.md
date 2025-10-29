@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 import { ArrowLeft, Download, Loader2, Home, Copy } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { functions } from "@/lib/appwrite";
+import { ModeToggle } from "./ModeToggle";
 
 interface ConversionResult {
   html: string;
@@ -205,7 +206,11 @@ const Results = () => {
     }
     
     return (
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen bg-background relative">
+            <div className="fixed top-6 right-6 z-50">
+                <ModeToggle />
+            </div>
+
             {/* Header with actions */}
             <div className="border-b border-border bg-card sticky top-0 z-10">
                 <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between gap-4 flex-wrap">
@@ -270,19 +275,19 @@ const Results = () => {
 
                         <TabsContent value="markdown">
                             <pre className="bg-code-bg border border-border rounded-lg p-6 overflow-x-auto text-sm">
-                                <code className="text-foreground whitespace-pre-wrap break-words">{result?.markdown}</code>
+                                <code className="text-foreground whitespace-pre-wrap wrap-break-word">{result?.markdown}</code>
                             </pre>
                         </TabsContent>
 
                         <TabsContent value="html">
                             <pre className="bg-code-bg border border-border rounded-lg p-6 overflow-x-auto text-sm">
-                                <code className="text-foreground whitespace-pre-wrap break-words">{result?.html}</code>
+                                <code className="text-foreground whitespace-pre-wrap wrap-break-word">{result?.html}</code>
                             </pre>
                         </TabsContent>
 
                         <TabsContent value="plainText">
                             <pre className="bg-code-bg border border-border rounded-lg p-6 overflow-x-auto text-sm">
-                                <code className="text-foreground whitespace-pre-wrap break-words">{result?.plainText}</code>
+                                <code className="text-foreground whitespace-pre-wrap wrap-break-word">{result?.plainText}</code>
                             </pre>
                         </TabsContent>
                     </Tabs>
