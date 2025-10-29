@@ -1,0 +1,14 @@
+{
+  "name": "convert-url",
+  "version": "1.0.0",
+  "description": "Convert URL to Markdown, HTML, and Plain Text",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"No tests yet\""
+  },
+  "dependencies": {
+    "node-appwrite": "^13.0.0",
+    "node-html-parser": "^6.1.4"
+  }
+}
