@@ -206,92 +206,94 @@ const Results = () => {
     }
     
     return (
-        <div className="min-h-screen bg-background relative">
-            <div className="fixed top-6 right-6 z-50">
-                <ModeToggle />
-            </div>
-
-            {/* Header with actions */}
-            <div className="border-b border-border bg-card sticky top-0 z-10">
-                <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between gap-4 flex-wrap">
+        <div className="min-h-screen bg-background">
+            <div className="border-b border-border bg-card sticky top-0 z-20">
+                <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between gap-2">
                     <Button 
                         variant="ghost"
                         size="sm"
                         onClick={() => router.push('/')}
-                        className="hover:bg-accent"
+                        className="hover:bg-accent text-xs sm:text-sm h-10"
                     >
-                        <ArrowLeft className="mr-2 h-4 w-4"/>
-                        Back
+                        <ArrowLeft className="mr-1 sm:mr-2 h-4 w-4"/>
+                        <span className="hidden sm:inline">Back</span>
                     </Button>
 
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 items-center">
                         <Button
                             variant="outline"
                             size="sm"
                             onClick={() => copyToClipboard(getCurrentContent(), activeTab.toUpperCase())}
-                            className="border-border hover:bg-accent"
+                            className="border-border hover:bg-accent text-xs sm:text-sm px-2 sm:px-3 h-10"
                         >
-                            <Copy className="mr-2 h-4 w-4" />
-                            Copy
+                            <Copy className="h-4 w-4" />
+                            <span className="hidden sm:inline sm:ml-2">Copy</span>
                         </Button>
                         
                         <Button
                             variant="outline"
                             size="sm"
                             onClick={()=> downloadContent(getCurrentContent(),getCurrentFormat())}
-                            className="border-border hover:bg-accent"
+                            className="border-border hover:bg-accent text-xs sm:text-sm px-2 sm:px-3 h-10"
                         >
-                            <Download  className="mr-2 h-4 w-4"/>
-                            Download
+                            <Download className="h-4 w-4"/>
+                            <span className="hidden sm:inline sm:ml-2">Download</span>
                         </Button>
+
+                        <ModeToggle />
                     </div>
                 </div>
+            </div>
 
-                {/* Content */}
-                <div className="max-w-7xl mx-auto p-4">
+            <div className="border-b border-border bg-card sticky top-[57px] sm:top-[61px] z-10">
+                <div className="max-w-7xl mx-auto px-3 sm:px-4 pt-3 sm:pt-4">
                     <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                        <TabsList className="grid w-full grid-cols-3 bg-secondary mb-4">
+                        <TabsList className="grid w-full grid-cols-3 bg-secondary mb-3 sm:mb-4">
                             <TabsTrigger 
                                 value="markdown"
-                                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                                className="text-gray-900 dark:text-gray-900 data-[state=active]:bg-gray-900 data-[state=active]:text-white data-[state=active]:shadow-[0_4px_14px_0_rgba(0,0,0,0.4)] dark:data-[state=active]:bg-white dark:data-[state=active]:text-gray-900 dark:data-[state=active]:shadow-[0_4px_14px_0_rgba(255,255,255,0.4)] font-semibold text-xs sm:text-sm transition-all"
                             >
                                 Markdown
                             </TabsTrigger>
 
                             <TabsTrigger
                                 value="html"
-                                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                                className="text-gray-900 dark:text-gray-900 data-[state=active]:bg-gray-900 data-[state=active]:text-white data-[state=active]:shadow-[0_4px_14px_0_rgba(0,0,0,0.4)] dark:data-[state=active]:bg-white dark:data-[state=active]:text-gray-900 dark:data-[state=active]:shadow-[0_4px_14px_0_rgba(255,255,255,0.4)] font-semibold text-xs sm:text-sm transition-all"
                             >
                                 HTML
                             </TabsTrigger>
 
                             <TabsTrigger
                                 value="plainText"
-                                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                                className="text-gray-900 dark:text-gray-900 data-[state=active]:bg-gray-900 data-[state=active]:text-white data-[state=active]:shadow-[0_4px_14px_0_rgba(0,0,0,0.4)] dark:data-[state=active]:bg-white dark:data-[state=active]:text-gray-900 dark:data-[state=active]:shadow-[0_4px_14px_0_rgba(255,255,255,0.4)] font-semibold text-xs sm:text-sm transition-all"
                             >
                                 Plain Text
                             </TabsTrigger>
                         </TabsList>
-
-                        <TabsContent value="markdown">
-                            <pre className="bg-code-bg border border-border rounded-lg p-6 overflow-x-auto text-sm">
-                                <code className="text-foreground whitespace-pre-wrap wrap-break-word">{result?.markdown}</code>
-                            </pre>
-                        </TabsContent>
-
-                        <TabsContent value="html">
-                            <pre className="bg-code-bg border border-border rounded-lg p-6 overflow-x-auto text-sm">
-                                <code className="text-foreground whitespace-pre-wrap wrap-break-word">{result?.html}</code>
-                            </pre>
-                        </TabsContent>
-
-                        <TabsContent value="plainText">
-                            <pre className="bg-code-bg border border-border rounded-lg p-6 overflow-x-auto text-sm">
-                                <code className="text-foreground whitespace-pre-wrap wrap-break-word">{result?.plainText}</code>
-                            </pre>
-                        </TabsContent>
                     </Tabs>
                 </div>
+            </div>
+
+            <div className="max-w-7xl mx-auto p-3 sm:p-4">
+                <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                    <TabsContent value="markdown">
+                        <pre className="bg-code-bg border border-border rounded-lg p-4 sm:p-6 overflow-x-auto text-xs sm:text-sm">
+                            <code className="text-foreground whitespace-pre-wrap wrap-break-word">{result?.markdown}</code>
+                        </pre>
+                    </TabsContent>
+
+                    <TabsContent value="html">
+                        <pre className="bg-code-bg border border-border rounded-lg p-4 sm:p-6 overflow-x-auto text-xs sm:text-sm">
+                            <code className="text-foreground whitespace-pre-wrap wrap-break-word">{result?.html}</code>
+                        </pre>
+                    </TabsContent>
+
+                    <TabsContent value="plainText">
+                        <pre className="bg-code-bg border border-border rounded-lg p-4 sm:p-6 overflow-x-auto text-xs sm:text-sm">
+                            <code className="text-foreground whitespace-pre-wrap wrap-break-word">{result?.plainText}</code>
+                        </pre>
+                    </TabsContent>
+                </Tabs>
             </div>
         </div>
     );

@@ -48,31 +48,31 @@ const Convert = () => {
     }
     
     return (
-        <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 relative">
-            <div className="fixed top-6 right-6 z-50">
+        <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 sm:p-6 relative">
+            <div className="fixed top-3 right-3 sm:top-6 sm:right-6 z-50">
                 <ModeToggle />
             </div>
 
-            <div className="w-full max-w-4xl space-y-8">
+            <div className="w-full max-w-4xl space-y-6 sm:space-y-8 mt-12 sm:mt-0">
                 {/* Header */}
                 <div className="space-y-3">
-                    <h1 className="text-5xl md:text-6xl font-bold text-primary">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">
                         # mark.md
                     </h1>
-                    <p className="text-lg text-muted-foreground">
+                    <p className="text-base sm:text-lg text-muted-foreground">
                         Convert any webpage into LLM-friendly markdown.
                     </p>
                 </div>
 
                 {/* Usage Instructions */}
-                <div className="p-8 bg-card border-2 border-border rounded-2xl space-y-4">
-                    <h2 className="text-xl font-bold text-foreground">## Usage</h2>
-                    <p className="text-base text-muted-foreground">
+                <div className="p-6 sm:p-8 bg-card border-2 border-border rounded-2xl space-y-4">
+                    <h2 className="text-lg sm:text-xl font-bold text-foreground">## Usage</h2>
+                    <p className="text-sm sm:text-base text-muted-foreground">
                         Prefix the URL you want to convert with{" "}
                         <span className="text-primary font-bold">markmd.vercel.app/</span>
                     </p>
-                    <div className="bg-background p-6 rounded-xl border-2 border-border">
-                        <code className="text-base font-mono">
+                    <div className="bg-background p-4 sm:p-6 rounded-xl border-2 border-border overflow-x-auto">
+                        <code className="text-sm sm:text-base font-mono whitespace-nowrap block">
                             <span className="text-muted-foreground">E.g.:</span>{" "}
                             <span className="text-primary font-semibold">markmd.vercel.app/</span>
                             <span className="text-foreground">https://priyanshut.tech</span>
@@ -82,7 +82,7 @@ const Convert = () => {
 
                 {/*Input Form*/}
                 <div className="space-y-4">
-                    <p className="text-base text-muted-foreground">Or paste the URL below:</p>
+                    <p className="text-sm sm:text-base text-muted-foreground">Or paste the URL below:</p>
                     <div className="flex gap-3 flex-col sm:flex-row">
                         <Input 
                             type="url"
@@ -90,14 +90,14 @@ const Convert = () => {
                             value={url}
                             onChange={(e) => setUrl(e.target.value)}
                             onKeyDown={(e) => e.key === 'Enter' && !isLoading && handleConvert()}
-                            className="flex-1 h-14 px-6 text-base bg-muted border-2 border-border rounded-xl focus:border-primary transition-colors"
+                            className="flex-1 h-12 sm:h-14 px-4 sm:px-6 text-sm sm:text-base bg-muted border-2 border-border rounded-xl focus:border-primary transition-colors"
                             disabled={isLoading}
                         />
 
                         <Button
                             onClick={() => handleConvert()}
                             disabled={isLoading}
-                            className="h-14 px-8 text-base bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-xl"
+                            className="h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-xl w-full sm:w-auto"
                         >
                             {isLoading ? (
                                 <>
