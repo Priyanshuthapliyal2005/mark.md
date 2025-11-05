@@ -24,6 +24,9 @@ With **mark.md**, developers and AI workflows can quickly get clean **Markdown**
 
 ---
 
+<img width="7315" height="14409" alt="image" src="https://github.com/user-attachments/assets/c4da8be1-938e-4dd6-a78f-f428c6f6c735" />
+
+
 ## Inspiration
 
 Most documentation sites today don’t offer export options like **Markdown**, **HTML**, or **plain text**.  
