@@ -24,8 +24,7 @@ With **mark.md**, developers and AI workflows can quickly get clean **Markdown**
 
 ---
 
-<img width="7315" height="14409" alt="image" src="https://github.com/user-attachments/assets/c4da8be1-938e-4dd6-a78f-f428c6f6c735" />
-
+<img width="7315" height="14409" alt="image" src="https://github.com/user-attachments/assets/8235b966-bec1-4653-9ff7-fe05063b9b22" />
 
 ## Inspiration
 
