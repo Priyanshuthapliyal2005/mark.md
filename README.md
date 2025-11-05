@@ -20,7 +20,7 @@ With **mark.md**, developers and AI workflows can quickly get clean **Markdown**
 - One-click export for developers and AI workflows  
 - No installation or setup required — works directly in your browser  
 - Built for open-source and private documentation use cases  
-- Hosted on **Appwrite Sites** and powered by **Vercel**
+- Hosted on **Appwrite Sites** and **Vercel** Both
 
 ---
 
